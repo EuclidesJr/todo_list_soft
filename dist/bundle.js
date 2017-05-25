@@ -9479,7 +9479,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 
 	var _parseInt = __webpack_require__(360);
@@ -9497,24 +9497,24 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function registerEventHandlers() {
-	    (0, _events.listen)('click', '#addTodo', function (event) {
-	        var todoInput = document.getElementById('todoInput');
-	        _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
-	        event.stopPropagation();
-	        document.getElementById('todoInput').focus();
-	    });
+		(0, _events.listen)('click', '#addTodo', function (event) {
+			var todoInput = document.getElementById('todoInput');
+			_state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
+			event.stopPropagation();
+			document.getElementById('todoInput').focus();
+		});
 
-	    (0, _events.listen)('keypress', '#addTodo', function (event) {
-	        var todoInput = document.getElementById('todoInput');
-	        _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
-	        event.stopPropagation();
-	        document.getElementById('todoInput').focus();
-	    });
+		(0, _events.listen)('keypress', '#addTodo', function (event) {
+			var todoInput = document.getElementById('todoInput');
+			_state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
+			event.stopPropagation();
+			document.getElementById('todoInput').focus();
+		});
 
-	    (0, _events.listen)('click', '.js_toggle_todo', function (event) {
-	        var id = (0, _parseInt2.default)(event.target.getAttribute('data-id'), 10);
-	        _state.todos.dispatch((0, _actions.toggleTodoState)(id));
-	    });
+		(0, _events.listen)('click', '.js_toggle_todo', function (event) {
+			var id = (0, _parseInt2.default)(event.target.getAttribute('data-id'), 10);
+			_state.todos.dispatch((0, _actions.toggleTodoState)(id));
+		});
 	}
 
 /***/ }),
