@@ -7,12 +7,14 @@ export function registerEventHandlers() {
         const todoInput = document.getElementById('todoInput');
         todos.dispatch(addTodo(todoInput.value));
         event.stopPropagation();
+        document.getElementById('todoInput').focus();
     });
 	
 	listen('keypress', '#addTodo', event => {
         const todoInput = document.getElementById('todoInput');
         todos.dispatch(addTodo(todoInput.value));
-		event.stopPropagation();    
+		event.stopPropagation();
+		document.getElementById('todoInput').focus();
 	});
 	
     listen('click', '.js_toggle_todo', event => {
