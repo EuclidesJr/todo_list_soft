@@ -9501,24 +9501,12 @@
 	        var todoInput = document.getElementById('todoInput');
 	        _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
 	        event.stopPropagation();
-	        /**
-	        * Adicionado o foco 
-	        **/
-	        document.getElementById('todoInput').focus();
 	    });
 
-	    /**
-	     * Adicionado o evento keypress
-	     * */
 	    (0, _events.listen)('keypress', '#addTodo', function (event) {
 	        var todoInput = document.getElementById('todoInput');
 	        _state.todos.dispatch((0, _actions.addTodo)(todoInput.value));
 	        event.stopPropagation();
-
-	        /**
-	         * Adicionado o foco 
-	         **/
-	        document.getElementById('todoInput').focus();
 	    });
 
 	    (0, _events.listen)('click', '.js_toggle_todo', function (event) {
@@ -9620,9 +9608,7 @@
 	        if (event.target.matches(selector)) {
 	            return handler(event);
 	        }
-	        /**
-	         * Adicionado tratativa para o evento da tecla ENTER == 13
-	         * */
+
 	        if (event.which == 13) {
 	            return handler(event);
 	        }

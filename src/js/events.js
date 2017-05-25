@@ -9,6 +9,12 @@ export function registerEventHandlers() {
         event.stopPropagation();
     });
 	
+	listen('keypress', '#addTodo', event => {
+        const todoInput = document.getElementById('todoInput');
+        todos.dispatch(addTodo(todoInput.value));
+		event.stopPropagation();    
+	});
+	
     listen('click', '.js_toggle_todo', event => {
         const id = Number.parseInt(event.target.getAttribute('data-id'), 10);
         todos.dispatch(toggleTodoState(id));
