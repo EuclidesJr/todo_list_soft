@@ -1,4 +1,4 @@
-import {isEnabled,filterArrayOpen,filterArrayClosed} from './lib/feature';
+import {isEnabled,filterArray} from './lib/feature';
 
 export function render(el, state) {
 	const todoItems = state.todos.map(renderTodoItem).join('');
@@ -10,18 +10,14 @@ export function render(el, state) {
 }
 
 function renderApp(input, todoList,state ) {
-	if(isEnabled('renderBottom')) {
+	if(isEnabled('renderBottom') && !isEnabled('filter')) {
 		return renderAddTodoAtBottom(input, todoList);
-	} if(isEnabled('filter')){
-		if(state.filterOption == "open"){
-			var todosFilter = state.todos.filter( filterArrayOpen );
-			todoList = todosFilter.map(renderTodoItem).join('');
-		}
-		if(state.filterOption == "closed"){
-			var todosFilter = state.todos.filter( filterArrayClosed );
-			todoList = todosFilter.map(renderTodoItem).join('');
-		}
-		return renderAddTodoAtTopRadio(input, renderTodos(todoList), renderRadio(state.filterOption));
+	}else if(!isEnabled('renderBottom') && isEnabled('filter')){		
+		todoList = filterArray(state.todos,state.filterOption);		
+		return renderAddTodoAtTopRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+	}else if(isEnabled('renderBottom') && isEnabled('filter')){
+		todoList = filterArray(state.todos,state.filterOption);
+		return renderAddTodoAtBottomRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
 	}else {
 		return renderAddTodoAtTop(input, todoList);
 	}
@@ -44,8 +40,16 @@ function renderAddTodoAtBottom(input, todoList) {
 function renderAddTodoAtTopRadio(input, todoList, radio){
 	return `<div id="app">
         ${radio}
+        ${input}
+        ${todoList}
+    </div>`;
+}
+
+function renderAddTodoAtBottomRadio(input, todoList, radio){
+	return `<div id="app">
         ${todoList}
         ${input}
+        ${radio}
     </div>`;
 }
 

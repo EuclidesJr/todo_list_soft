@@ -9440,18 +9440,14 @@
 	}
 
 	function renderApp(input, todoList, state) {
-		if ((0, _feature.isEnabled)('renderBottom')) {
+		if ((0, _feature.isEnabled)('renderBottom') && !(0, _feature.isEnabled)('filter')) {
 			return renderAddTodoAtBottom(input, todoList);
-		}if ((0, _feature.isEnabled)('filter')) {
-			if (state.filterOption == "open") {
-				var todosFilter = state.todos.filter(_feature.filterArrayOpen);
-				todoList = todosFilter.map(renderTodoItem).join('');
-			}
-			if (state.filterOption == "closed") {
-				var todosFilter = state.todos.filter(_feature.filterArrayClosed);
-				todoList = todosFilter.map(renderTodoItem).join('');
-			}
-			return renderAddTodoAtTopRadio(input, renderTodos(todoList), renderRadio(state.filterOption));
+		} else if (!(0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter')) {
+			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
+			return renderAddTodoAtTopRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+		} else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter')) {
+			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
+			return renderAddTodoAtBottomRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
 		} else {
 			return renderAddTodoAtTop(input, todoList);
 		}
@@ -9466,7 +9462,11 @@
 	}
 
 	function renderAddTodoAtTopRadio(input, todoList, radio) {
-		return '<div id="app">\n        ' + radio + '\n        ' + todoList + '\n        ' + input + '\n    </div>';
+		return '<div id="app">\n        ' + radio + '\n        ' + input + '\n        ' + todoList + '\n    </div>';
+	}
+
+	function renderAddTodoAtBottomRadio(input, todoList, radio) {
+		return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n        ' + radio + '\n    </div>';
 	}
 
 	function renderInput() {
@@ -9499,16 +9499,25 @@
 /* 358 */
 /***/ (function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 	exports.isEnabled = isEnabled;
-	exports.filterArrayOpen = filterArrayOpen;
-	exports.filterArrayClosed = filterArrayClosed;
+	exports.filterArray = filterArray;
 	function isEnabled(name) {
 		return window.location.hash.split('#').includes(name);
+	}
+
+	function filterArray(todos, filterOption) {
+		if (filterOption == "open") {
+			return todos.filter(filterArrayOpen);
+		} else if (filterOption == "closed") {
+			return todos.filter(filterArrayClosed);
+		} else {
+			return todos;
+		}
 	}
 
 	function filterArrayOpen(todos) {
