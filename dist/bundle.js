@@ -8434,7 +8434,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.todos = undefined;
+	exports.filterOption = exports.todos = undefined;
 
 	var _getIterator2 = __webpack_require__(303);
 
@@ -8503,10 +8503,20 @@
 	            }
 
 	            break;
+	        case 'SHOW_OPEN':
+	            state.filterOption = "open";
+	            break;
+	        case 'SHOW_CLOSED':
+	            state.filterOption = "closed";
+	            break;
+	        case 'SHOW_ALL':
+	            state.filterOption = "all";
+	            break;
 	    }
 	}
 
 	var todos = exports.todos = (0, _state.createStore)(todoChangeHandler, initialState);
+	var filterOption = exports.filterOption = "all";
 
 /***/ }),
 /* 303 */
@@ -9418,45 +9428,72 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	exports.render = render;
 
 	var _feature = __webpack_require__(358);
 
 	function render(el, state) {
-	    var todoItems = state.todos.map(renderTodoItem).join('');
-	    el.innerHTML = renderApp(renderInput(), renderTodos(todoItems));
+		var todoItems = state.todos.map(renderTodoItem).join('');
+		el.innerHTML = renderApp(renderInput(), renderTodos(todoItems), state);
 	}
 
-	function renderApp(input, todoList) {
-	    if ((0, _feature.isEnabled)('renderBottom')) {
-	        return renderAddTodoAtBottom(input, todoList);
-	    } else {
-	        return renderAddTodoAtTop(input, todoList);
-	    }
+	function renderApp(input, todoList, state) {
+		if ((0, _feature.isEnabled)('renderBottom')) {
+			return renderAddTodoAtBottom(input, todoList);
+		}if ((0, _feature.isEnabled)('filter')) {
+			if (state.filterOption == "open") {
+				var todosFilter = state.todos.filter(_feature.filterArrayOpen);
+				todoList = todosFilter.map(renderTodoItem).join('');
+			}
+			if (state.filterOption == "closed") {
+				var todosFilter = state.todos.filter(_feature.filterArrayClosed);
+				todoList = todosFilter.map(renderTodoItem).join('');
+			}
+			return renderAddTodoAtTopRadio(input, renderTodos(todoList), renderRadio(state.filterOption));
+		} else {
+			return renderAddTodoAtTop(input, todoList);
+		}
 	}
 
 	function renderAddTodoAtTop(input, todoList) {
-	    return '<div id="app">\n        ' + input + '\n        ' + todoList + '\n    </div>';
+		return '<div id="app">\n        ' + input + '\n        ' + todoList + '\n    </div>';
 	}
 
 	function renderAddTodoAtBottom(input, todoList) {
-	    return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n    </div>';
+		return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n    </div>';
+	}
+
+	function renderAddTodoAtTopRadio(input, todoList, radio) {
+		return '<div id="app">\n        ' + radio + '\n        ' + todoList + '\n        ' + input + '\n    </div>';
 	}
 
 	function renderInput() {
-	    return '<div class="todo__input"><input type="text" id="todoInput"><button id="addTodo">Add</button></div>';
+		return '<div class="todo__input"><input type="text" id="todoInput"><button id="addTodo">Add</button></div>';
+	}
+
+	function renderRadio(option) {
+		return '<div class="todo__filter">\n\t\t\t\t<input type="radio" name="filterStatus" value="all" ' + (option == "all" || option === undefined ? ' checked' : '') + ' >All\n\t\t\t\t<input type="radio" name="filterStatus" value="open" ' + (option == "open" ? ' checked' : '') + '>Open\n\t\t\t\t<input type="radio" name="filterStatus" value="closed" ' + (option == "closed" ? ' checked' : '') + '>Closed\n\t\t\t</div>';
 	}
 
 	function renderTodos(todoItems) {
-	    return '<ul class="todo">' + todoItems + '</ul>';
+		return '<ul class="todo">' + todoItems + '</ul>';
 	}
 
 	function renderTodoItem(todo) {
-	    var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
-	    return '<li class="' + todoClass + '">\n        <input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        ' + todo.text + '\n    </li>';
+		var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
+		return '<li class="' + todoClass + '">\n        <input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        ' + todo.text + '\n    </li>';
+	}
+
+	function renderTodoItemFilter(todo, filterRadio) {
+		var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
+		if (filterRadio == "open" && todo.done) {
+			return '<li class="' + todoClass + '">\n\t\t\t<input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n\t\t\t' + todo.text + '\n\t\t</li>';
+		} else if (filterRadio == "closed" && !todo.done) {
+			return '<li class="' + todoClass + '">\n\t\t\t<input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n\t\t\t' + todo.text + '\n\t\t</li>';
 		}
+	}
 
 /***/ }),
 /* 358 */
@@ -9465,11 +9502,21 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	exports.isEnabled = isEnabled;
+	exports.filterArrayOpen = filterArrayOpen;
+	exports.filterArrayClosed = filterArrayClosed;
 	function isEnabled(name) {
-	    return window.location.hash.split('#').includes(name);
+		return window.location.hash.split('#').includes(name);
+	}
+
+	function filterArrayOpen(todos) {
+		return !todos.done;
+	}
+
+	function filterArrayClosed(todos) {
+		return todos.done;
 	}
 
 /***/ }),
@@ -9514,6 +9561,12 @@
 		(0, _events.listen)('click', '.js_toggle_todo', function (event) {
 			var id = (0, _parseInt2.default)(event.target.getAttribute('data-id'), 10);
 			_state.todos.dispatch((0, _actions.toggleTodoState)(id));
+		});
+
+		(0, _events.listen)('change', 'input[type="radio"]', function (event) {
+			var filterRadio = document.querySelector("input[name=filterStatus]:checked").value;
+			_state.todos.dispatch((0, _actions.showFiltered)(filterRadio));
+			event.stopPropagation();
 		});
 	}
 
@@ -9602,19 +9655,19 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	exports.listen = listen;
 	function listen(eventName, selector, handler) {
-	    document.body.addEventListener(eventName, function (event) {
-	        if (event.target.matches(selector)) {
-	            return handler(event);
-	        }
+		document.body.addEventListener(eventName, function (event) {
+			if (event.target.matches(selector)) {
+				return handler(event);
+			}
 
-	        if (event.which == 13) {
-	            return handler(event);
-	        }
-	    });
+			if (event.which == 13) {
+				return handler(event);
+			}
+		});
 	}
 
 /***/ }),
@@ -9624,23 +9677,45 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	exports.toggleTodoState = toggleTodoState;
 	exports.addTodo = addTodo;
+	exports.showFiltered = showFiltered;
 	function toggleTodoState(id) {
-	    return {
-	        type: 'TODO_TOGGLE_DONE',
-	        id: id
-	    };
+		return {
+			type: 'TODO_TOGGLE_DONE',
+			id: id
+		};
 	}
 
 	function addTodo(text) {
-	    return {
-	        type: 'ADD_TODO',
-	        text: text
-	    };
+		return {
+			type: 'ADD_TODO',
+			text: text
+		};
+	}
+
+	function showFiltered(text) {
+		if (text == "open") {
+			return {
+				type: 'SHOW_OPEN',
+				text: text
+			};
 		}
+		if (text == "closed") {
+			return {
+				type: 'SHOW_CLOSED',
+				text: text
+			};
+		}
+		if (text == "all") {
+			return {
+				type: 'SHOW_ALL',
+				text: text
+			};
+		}
+	}
 
 /***/ })
 /******/ ]);

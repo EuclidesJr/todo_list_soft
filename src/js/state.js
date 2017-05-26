@@ -42,7 +42,17 @@ function todoChangeHandler(state, change) {
                 }
             }
             break;
+        case 'SHOW_OPEN':
+			state.filterOption = "open";
+			break;
+		case 'SHOW_CLOSED':
+			state.filterOption = "closed";
+			break;
+		case 'SHOW_ALL':
+			state.filterOption = "all";
+			break;
     }
 }
 
 export const todos = createStore(todoChangeHandler, initialState);
+export const filterOption = "all";
