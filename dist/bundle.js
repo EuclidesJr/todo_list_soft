@@ -9445,9 +9445,12 @@
 		} else if (!(0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter')) {
 			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
 			return renderAddTodoAtTopRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
-		} else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter')) {
+		} else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter') && !(0, _feature.isEnabled)('filterTop')) {
 			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
 			return renderAddTodoAtBottomRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+		} else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter') && (0, _feature.isEnabled)('filterTop')) {
+			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
+			return renderFilterTop(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
 		} else {
 			return renderAddTodoAtTop(input, todoList);
 		}
@@ -9467,6 +9470,10 @@
 
 	function renderAddTodoAtBottomRadio(input, todoList, radio) {
 		return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n        ' + radio + '\n    </div>';
+	}
+
+	function renderFilterTop(input, todoList, radio) {
+		return '<div id="app">\n        ' + radio + '        \n        ' + todoList + '\n        ' + input + '\n    </div>';
 	}
 
 	function renderInput() {

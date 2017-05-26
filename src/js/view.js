@@ -15,9 +15,12 @@ function renderApp(input, todoList,state ) {
 	}else if(!isEnabled('renderBottom') && isEnabled('filter')){		
 		todoList = filterArray(state.todos,state.filterOption);		
 		return renderAddTodoAtTopRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
-	}else if(isEnabled('renderBottom') && isEnabled('filter')){
+	}else if(isEnabled('renderBottom') && isEnabled('filter') && !isEnabled('filterTop')){
 		todoList = filterArray(state.todos,state.filterOption);
 		return renderAddTodoAtBottomRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+	}else if(isEnabled('renderBottom') && isEnabled('filter') && isEnabled('filterTop')){
+		todoList = filterArray(state.todos,state.filterOption);
+		return renderFilterTop(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
 	}else {
 		return renderAddTodoAtTop(input, todoList);
 	}
@@ -50,6 +53,14 @@ function renderAddTodoAtBottomRadio(input, todoList, radio){
         ${todoList}
         ${input}
         ${radio}
+    </div>`;
+}
+
+function renderFilterTop(input, todoList, radio){
+	return `<div id="app">
+        ${radio}        
+        ${todoList}
+        ${input}
     </div>`;
 }
 
