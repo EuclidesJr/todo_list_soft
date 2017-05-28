@@ -51,6 +51,13 @@ function todoChangeHandler(state, change) {
 		case 'SHOW_ALL':
 			state.filterOption = "all";
 			break;
+		case 'REMOVE_TODO':
+			for(var i = state.todos.length - 1; i >= 0 ; i--) {
+				if(state.todos[i].done){
+					state.todos.splice(i, 1);
+				}
+			}			
+			break;
     }
 }
 

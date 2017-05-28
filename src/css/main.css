@@ -1,20 +1,198 @@
 html, body, .todo {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+	background-color: #E4E2E0;
+	height: 100%;
 }
 
 .todo {
     list-style-type: none;
+	color: #353436;
+	font-size: 20px;
 }
 
-.todo__input, .todo__item {
-    margin: 10px;
+.todo__input, .todo__item_li, .todo__filter {
+    margin: 0 20% 25px 20%;
+}
+
+.todo__input{
+	display:flex;
+	flex-direction:row;
+	border: none;
+	border-bottom: solid 1px #E4E2E0;
+	-webkit-transition: all ease-in-out 0.3s;
+	-moz-transition: all ease-in-out 0.3s;
+	-ms-transition: all ease-in-out 0.3s;
+	-o-transition: all ease-in-out 0.3s;
+	transition:  all ease-in-out 0.3s;
+}
+
+.todo__input:focus,
+.todo__input.focus,
+.todo__input:active,
+.todo__input.active,
+.todo__input:hover,
+.todo__input.hover {
+  border-bottom: solid 1px #969696;
+}
+
+#addTodo {
+    -webkit-border-radius: 60;
+	-moz-border-radius: 60;
+	border-radius: 60px;
+	color: #E4E2E0;
+	font-size: 20px;
+	background: #FEFEFE;
+	border: solid #E4E2E0 1px;	
+	text-align: center;
+	padding-bottom: 2px;
+	margin: 30px 0 10px 0;
+}
+
+#addTodo:hover {
+  color: #8A868A;
+  border: solid #8A868A 1px;
+  cursor:pointer;
+}
+
+#app{
+	width: 70%;
+	margin: 0 auto;
+	background-color: #FEFEFE;
+	height: 100%;
+	-webkit-box-shadow: 0px 0px 12px -1px rgba(13,13,13,0.53);
+	-moz-box-shadow: 0px 0px 12px -1px rgba(13,13,13,0.53);
+	box-shadow: 0px 0px 12px -1px rgba(13,13,13,0.53);
+}
+
+input[type=text] {
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #353436;
+	padding-bottom: 10px;
+	margin-top: 30px;
+	font-size: 25px;
+	flex-grow:2;
+	text-indent: 5px;
+}
+
+::-webkit-input-placeholder {
+	color: #E4E2E0;
+}
+::-moz-placeholder {
+	color: #E4E2E0;
+}
+:-moz-placeholder {
+	color: #E4E2E0;
+}
+
+
+.todo__filter{
+	padding: 10px 0 20px 0;
+}
+
+input[type=checkbox]  {
+	color: #353436;
+	font-size: 20px;
+	margin-top: 13px;
+	display:none;
+}
+
+input[type=checkbox] + label {
+    display:inline-block;
+    padding: 0 0 0 0px;
+    background:url(../images/check-circle-outline-blank-16.png) no-repeat;
+    background-size: 16px 16px;
+    background-position: left center;
+    width: 100%;
+}
+
+input[type=checkbox]:checked + label {
+    background:url(../images/check-circle-green-16.png) no-repeat;
+    background-size: 16px 16px;
+    display:inline-block;
+    background-position: left center;
+}
+
+input[type=checkbox]:hover + label {
+    background:url(../images/check_alt-16.png) no-repeat;
+    background-size: 16px 16px;
+    display:inline-block;
+    background-position: left center;
+    cursor:pointer;
+}
+
+input[type=radio]  {
+	display:none;
+}
+
+input[type=radio] + label {
+	display:inline-block;
+    background:url(../images/radio-button_off.png) no-repeat;
+    background-size: 18px 18px;
+    background-position: left center;
+    text-indent: 18px;
+}
+
+input[type=radio]:checked + label {
+    background:url(../images/radio-button_on.png) no-repeat;
+    background-size: 18px 18px;
+    display:inline-block;
+    background-position: left center;
+}
+input[type=radio]:hover + label {
+	cursor:pointer;
+}
+
+.todo_text{
+	display:block;	
+	margin-left: 30px;
+	padding: 10px 0 10px 0;
+    word-wrap: break-word;
+}
+
+.todo_text:hover{
+	background-color: #E4E2E0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding-bottom: 10px;
 }
 
 .todo__item--done {
     text-decoration: line-through;
+    color: #9F9F9F9F;
+}
+	
+hr{
+	width: 39%;
+	margin: 11px 0 20px 20%;
+	background-color: #E4E2E0;
+	height: 2px; 
+	border: 0;	
+	float:left;
 }
 
-#addTodo {
-    margin-left: 10px;
+#removeTodo{
+	background-image: url(../images/trash-can-26.png);
+	background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 0px 0px;
+    border: none;
+    cursor: pointer;
+	padding-left: 20px;
+    vertical-align: middle;
+    color: #9F9F9F9F;
+	margin-right: 20%;	
+}
+
+h1{
+	text-align: center;
+	margin-top: 0px;
+	padding-top: 5%;
+	
 }

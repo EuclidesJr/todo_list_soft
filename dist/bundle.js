@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/home/euclides/Documentos/todo_list_soft/src/images";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -8112,7 +8112,7 @@
 
 
 	// module
-	exports.push([module.id, "html, body, .todo {\n    margin: 0;\n    padding: 0;\n}\n\n.todo {\n    list-style-type: none;\n}\n\n.todo__input, .todo__item {\n    margin: 10px;\n}\n\n.todo__item--done {\n    text-decoration: line-through;\n}\n\n#addTodo {\n    margin-left: 10px;\n}\n", ""]);
+	exports.push([module.id, "html, body, .todo {\n    margin: 0;\n    padding: 0;\n    font-family: Arial, Helvetica, sans-serif;\n}\n\nhtml, body{\n\tbackground-color: #E4E2E0;\n\theight: 100%;\n}\n\n.todo {\n    list-style-type: none;\n\tcolor: #353436;\n\tfont-size: 20px;\n}\n\n.todo__input, .todo__item_li, .todo__filter {\n    margin: 0 20% 25px 20%;\n}\n\n.todo__input{\n\tdisplay:flex;\n\tflex-direction:row;\n\tborder: none;\n\tborder-bottom: solid 1px #E4E2E0;\n\t-webkit-transition: all ease-in-out 0.3s;\n\t-moz-transition: all ease-in-out 0.3s;\n\t-ms-transition: all ease-in-out 0.3s;\n\t-o-transition: all ease-in-out 0.3s;\n\ttransition:  all ease-in-out 0.3s;\n}\n\n.todo__input:focus,\n.todo__input.focus,\n.todo__input:active,\n.todo__input.active,\n.todo__input:hover,\n.todo__input.hover {\n  border-bottom: solid 1px #969696;\n}\n\n#addTodo {\n    -webkit-border-radius: 60;\n\t-moz-border-radius: 60;\n\tborder-radius: 60px;\n\tcolor: #E4E2E0;\n\tfont-size: 20px;\n\tbackground: #FEFEFE;\n\tborder: solid #E4E2E0 1px;\t\n\ttext-align: center;\n\tpadding-bottom: 2px;\n\tmargin: 30px 0 10px 0;\n}\n\n#addTodo:hover {\n  color: #8A868A;\n  border: solid #8A868A 1px;\n  cursor:pointer;\n}\n\n#app{\n\twidth: 70%;\n\tmargin: 0 auto;\n\tbackground-color: #FEFEFE;\n\theight: 100%;\n\t-webkit-box-shadow: 0px 0px 12px -1px rgba(13,13,13,0.53);\n\t-moz-box-shadow: 0px 0px 12px -1px rgba(13,13,13,0.53);\n\tbox-shadow: 0px 0px 12px -1px rgba(13,13,13,0.53);\n}\n\ninput[type=text] {\n\tborder: none;\n\tfont-family: Arial, Helvetica, sans-serif;\n\tcolor: #353436;\n\tpadding-bottom: 10px;\n\tmargin-top: 30px;\n\tfont-size: 25px;\n\tflex-grow:2;\n\ttext-indent: 5px;\n}\n\n::-webkit-input-placeholder {\n\tcolor: #E4E2E0;\n}\n::-moz-placeholder {\n\tcolor: #E4E2E0;\n}\n:-moz-placeholder {\n\tcolor: #E4E2E0;\n}\n\n\n.todo__filter{\n\tpadding: 10px 0 20px 0;\n}\n\ninput[type=checkbox]  {\n\tcolor: #353436;\n\tfont-size: 20px;\n\tmargin-top: 13px;\n\tdisplay:none;\n}\n\ninput[type=checkbox] + label {\n    display:inline-block;\n    padding: 0 0 0 0px;\n    background:url(" + __webpack_require__(369) + ") no-repeat;\n    background-size: 16px 16px;\n    background-position: left center;\n    width: 100%;\n}\n\ninput[type=checkbox]:checked + label {\n    background:url(" + __webpack_require__(368) + ") no-repeat;\n    background-size: 16px 16px;\n    display:inline-block;\n    background-position: left center;\n}\n\ninput[type=checkbox]:hover + label {\n    background:url(" + __webpack_require__(370) + ") no-repeat;\n    background-size: 16px 16px;\n    display:inline-block;\n    background-position: left center;\n    cursor:pointer;\n}\n\ninput[type=radio]  {\n\tdisplay:none;\n}\n\ninput[type=radio] + label {\n\tdisplay:inline-block;\n    background:url(" + __webpack_require__(373) + ") no-repeat;\n    background-size: 18px 18px;\n    background-position: left center;\n    text-indent: 18px;\n}\n\ninput[type=radio]:checked + label {\n    background:url(" + __webpack_require__(372) + ") no-repeat;\n    background-size: 18px 18px;\n    display:inline-block;\n    background-position: left center;\n}\ninput[type=radio]:hover + label {\n\tcursor:pointer;\n}\n\n.todo_text{\n\tdisplay:block;\t\n\tmargin-left: 30px;\n\tpadding: 10px 0 10px 0;\n    word-wrap: break-word;\n}\n\n.todo_text:hover{\n\tbackground-color: #E4E2E0;\n\t-webkit-border-radius: 5px;\n\t-moz-border-radius: 5px;\n\tborder-radius: 5px;\n\tpadding-bottom: 10px;\n}\n\n.todo__item--done {\n    text-decoration: line-through;\n    color: #9F9F9F9F;\n}\n\t\nhr{\n\twidth: 39%;\n\tmargin: 11px 0 20px 20%;\n\tbackground-color: #E4E2E0;\n\theight: 2px; \n\tborder: 0;\t\n\tfloat:left;\n}\n\n#removeTodo{\n\tbackground-image: url(" + __webpack_require__(371) + ");\n\tbackground-repeat: no-repeat;\n    background-color: transparent;\n    background-position: 0px 0px;\n    border: none;\n    cursor: pointer;\n\tpadding-left: 20px;\n    vertical-align: middle;\n    color: #9F9F9F9F;\n\tmargin-right: 20%;\t\n}\n\nh1{\n\ttext-align: center;\n\tmargin-top: 0px;\n\tpadding-top: 5%;\n\t\n}\n", ""]);
 
 	// exports
 
@@ -8511,6 +8511,13 @@
 	            break;
 	        case 'SHOW_ALL':
 	            state.filterOption = "all";
+	            break;
+	        case 'REMOVE_TODO':
+	            for (var i = state.todos.length - 1; i >= 0; i--) {
+	                if (state.todos[i].done) {
+	                    state.todos.splice(i, 1);
+	                }
+	            }
 	            break;
 	    }
 	}
@@ -9425,7 +9432,7 @@
 /* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -9435,70 +9442,96 @@
 	var _feature = __webpack_require__(358);
 
 	function render(el, state) {
-		var todoItems = state.todos.map(renderTodoItem).join('');
-		el.innerHTML = renderApp(renderInput(), renderTodos(todoItems), state);
+		var todoListOpen = (0, _feature.filterArray)(state.todos, "open");
+		var todoListClosed = (0, _feature.filterArray)(state.todos, "closed");
+		el.innerHTML = renderApp(renderInput(), renderTodos(todoListOpen.map(renderTodoItem).join(''), todoListClosed.map(renderTodoItem).join('')), state);
 	}
 
 	function renderApp(input, todoList, state) {
 		if ((0, _feature.isEnabled)('renderBottom') && !(0, _feature.isEnabled)('filter')) {
 			return renderAddTodoAtBottom(input, todoList);
 		} else if (!(0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter')) {
-			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
-			return renderAddTodoAtTopRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			if (state.filterOption == "all" || state.filterOption === undefined) {
+				var todoListOpen = (0, _feature.filterArray)(state.todos, "open");
+				var todoListClosed = (0, _feature.filterArray)(state.todos, "closed");
+				return renderAddTodoAtTopRadio(input, renderTodos(todoListOpen.map(renderTodoItem).join(''), todoListClosed.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			} else {
+				todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
+				return renderAddTodoAtTopRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			}
 		} else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter') && !(0, _feature.isEnabled)('filterTop')) {
-			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
-			return renderAddTodoAtBottomRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			if (state.filterOption == "all" || state.filterOption === undefined) {
+				var _todoListOpen = (0, _feature.filterArray)(state.todos, "open");
+				var _todoListClosed = (0, _feature.filterArray)(state.todos, "closed");
+				return renderAddTodoAtBottomRadio(input, renderTodos(_todoListOpen.map(renderTodoItem).join(''), _todoListClosed.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			} else {
+				todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
+				return renderAddTodoAtBottomRadio(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			}
 		} else if ((0, _feature.isEnabled)('renderBottom') && (0, _feature.isEnabled)('filter') && (0, _feature.isEnabled)('filterTop')) {
-			todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
-			return renderFilterTop(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			if (state.filterOption == "all" || state.filterOption === undefined) {
+				var _todoListOpen2 = (0, _feature.filterArray)(state.todos, "open");
+				var _todoListClosed2 = (0, _feature.filterArray)(state.todos, "closed");
+				return renderFilterTop(input, renderTodos(_todoListOpen2.map(renderTodoItem).join(''), _todoListClosed2.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			} else {
+				todoList = (0, _feature.filterArray)(state.todos, state.filterOption);
+				return renderFilterTop(input, renderTodos(todoList.map(renderTodoItem).join('')), renderRadio(state.filterOption));
+			}
 		} else {
 			return renderAddTodoAtTop(input, todoList);
 		}
 	}
 
 	function renderAddTodoAtTop(input, todoList) {
-		return '<div id="app">\n        ' + input + '\n        ' + todoList + '\n    </div>';
+		return "<div id=\"app\">\n\t\t<h1>To do list</h1>\n        " + input + "\n        " + todoList + "\n    </div>";
 	}
 
 	function renderAddTodoAtBottom(input, todoList) {
-		return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n    </div>';
+		return "<div id=\"app\">\n\t\t<h1>To do list</h1>\n        " + todoList + "\n        " + input + "\n    </div>";
 	}
 
 	function renderAddTodoAtTopRadio(input, todoList, radio) {
-		return '<div id="app">\n        ' + radio + '\n        ' + input + '\n        ' + todoList + '\n    </div>';
+		return "<div id=\"app\">\n\t\t<h1>To do list</h1>\n\t\t" + input + "\n\t\t" + radio + "\n        " + todoList + "\n    </div>";
 	}
 
 	function renderAddTodoAtBottomRadio(input, todoList, radio) {
-		return '<div id="app">\n        ' + todoList + '\n        ' + input + '\n        ' + radio + '\n    </div>';
+		return "<div id=\"app\">\n\t\t<h1>To do list</h1>\n        " + todoList + "\n        " + input + "\n        " + radio + "\n    </div>";
 	}
 
 	function renderFilterTop(input, todoList, radio) {
-		return '<div id="app">\n        ' + radio + '        \n        ' + todoList + '\n        ' + input + '\n    </div>';
+		return "<div id=\"app\">\n\t\t<h1>To do list</h1>\n        " + radio + "        \n        " + todoList + "\n        " + input + "\n    </div>";
 	}
 
 	function renderInput() {
-		return '<div class="todo__input"><input type="text" id="todoInput"><button id="addTodo">Add</button></div>';
+		return "<div class=\"todo__input\">\n\t\t\t\t<button id=\"addTodo\">+</button>\t<input type=\"text\" id=\"todoInput\" placeholder=\"Add a task\" >\n\t\t\t</div>";
 	}
 
 	function renderRadio(option) {
-		return '<div class="todo__filter">\n\t\t\t\t<input type="radio" name="filterStatus" value="all" ' + (option == "all" || option === undefined ? ' checked' : '') + ' >All\n\t\t\t\t<input type="radio" name="filterStatus" value="open" ' + (option == "open" ? ' checked' : '') + '>Open\n\t\t\t\t<input type="radio" name="filterStatus" value="closed" ' + (option == "closed" ? ' checked' : '') + '>Closed\n\t\t\t</div>';
+		return "<div class=\"todo__filter\">\n\t\t\t\t<input type=\"radio\" id=\"r1\" name=\"filterStatus\" value=\"all\" " + (option == "all" || option === undefined ? ' checked' : '') + " ><label for=\"r1\">All</label>\n\t\t\t\t<input type=\"radio\" id=\"r2\" name=\"filterStatus\" value=\"open\" " + (option == "open" ? ' checked' : '') + "><label for=\"r2\">Open</label>\n\t\t\t\t<input type=\"radio\" id=\"r3\" name=\"filterStatus\" value=\"closed\" " + (option == "closed" ? ' checked' : '') + "><label for=\"r3\">Closed</label>\n\t\t\t</div>";
 	}
 
-	function renderTodos(todoItems) {
-		return '<ul class="todo">' + todoItems + '</ul>';
+	function renderTodos() {
+		var todoItemsOpen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+		var todoItemsClosed = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+
+		if (todoItemsClosed != "") {
+			return "<ul class=\"todo\">" + todoItemsOpen + "</ul>\n\t\t\t\t<hr><button id=\"removeTodo\">Clean all removed tasks</button>\n\t\t\t\t<ul class=\"todo\">" + todoItemsClosed + "</ul>\n\t\t\t\t";
+		} else {
+			return "<ul class=\"todo\">" + todoItemsOpen + "</ul>";
+		}
 	}
 
 	function renderTodoItem(todo) {
-		var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
-		return '<li class="' + todoClass + '">\n        <input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        ' + todo.text + '\n    </li>';
+		var todoClass = "todo__item todo__item--" + (todo.done ? 'done' : 'open');
+		return "<li class=\"todo__item_li\">\n        \n        <input class=\"js_toggle_todo\" type=\"checkbox\" id=\"" + todo.id + "\" data-id=\"" + todo.id + "\"" + (todo.done ? ' checked' : '') + ">\n        <label for=\"" + todo.id + "\"><a class=\"todo_text " + todoClass + "\">" + todo.text + "</a></label>\n    </li>";
 	}
 
 	function renderTodoItemFilter(todo, filterRadio) {
-		var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
+		var todoClass = "todo__item todo__item--" + (todo.done ? 'done' : 'open');
 		if (filterRadio == "open" && todo.done) {
-			return '<li class="' + todoClass + '">\n\t\t\t<input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n\t\t\t' + todo.text + '\n\t\t</li>';
+			return "<li class=\"" + todoClass + "\">\n\t\t\t<input class=\"js_toggle_todo\" type=\"checkbox\" data-id=\"" + todo.id + "\"" + (todo.done ? ' checked' : '') + ">\n\t\t\t" + todo.text + "\n\t\t</li>";
 		} else if (filterRadio == "closed" && !todo.done) {
-			return '<li class="' + todoClass + '">\n\t\t\t<input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n\t\t\t' + todo.text + '\n\t\t</li>';
+			return "<li class=\"" + todoClass + "\">\n\t\t\t<input class=\"js_toggle_todo\" type=\"checkbox\" data-id=\"" + todo.id + "\"" + (todo.done ? ' checked' : '') + ">\n\t\t\t" + todo.text + "\n\t\t</li>";
 		}
 	}
 
@@ -9582,6 +9615,12 @@
 		(0, _events.listen)('change', 'input[type="radio"]', function (event) {
 			var filterRadio = document.querySelector("input[name=filterStatus]:checked").value;
 			_state.todos.dispatch((0, _actions.showFiltered)(filterRadio));
+			event.stopPropagation();
+		});
+
+		(0, _events.listen)('click', '#removeTodo', function (event) {
+			var todoInput = document.getElementById('todoInput');
+			_state.todos.dispatch((0, _actions.removeDone)(todoInput.value));
 			event.stopPropagation();
 		});
 	}
@@ -9698,6 +9737,7 @@
 	exports.toggleTodoState = toggleTodoState;
 	exports.addTodo = addTodo;
 	exports.showFiltered = showFiltered;
+	exports.removeDone = removeDone;
 	function toggleTodoState(id) {
 		return {
 			type: 'TODO_TOGGLE_DONE',
@@ -9732,6 +9772,49 @@
 			};
 		}
 	}
+
+	function removeDone(text) {
+		return {
+			type: 'REMOVE_TODO',
+			text: text
+		};
+		}
+
+/***/ }),
+/* 368 */
+/***/ (function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAqFBMVEUAAABRrQBOrQBQrQBOrwBPrwBQrgBPrwBMsgBPrwBUqQBOrwBQrgBEREBQrQBEREBOpQZOrAJQrQBOrwBPrwBPrwBNsQBQrgBQrQBclAhOrABEREBEREBQrwBQrQFQqwJQqwNQrgBPqQNPqQSOy1pethWl1nz////G5KxRqgd/v0nu9uZptSiy1pL+/v6q2IPt9uWJyFP8/vuKyVTs9uRotSd/w0RntCUbyaHlAAAAHXRSTlMAMpnb+tqYMAqdCcPBAZgENJjY+deULpW/CZkJBcPvaMgAAACiSURBVBhXRc+7TsNAFADRmbtr2avIFIEiEv//aTQRIgUiTmJnL0V4lKebEUAV9QoIky8gJG/TGZnKHsLswKmXwvBMLUU70NYoHqiaucE4MF2r8OOmdw2JcXy4VtNQa32CZnPJbkDWetk327ZkQkh/d3dxHpbMDcOEo7vZj8wNDAGOtTyMEq/8lXA7B9Pp32tEYa1j0O8duEWMFcrX7/4S8+c39x1CmafAJ1MAAAAASUVORK5CYII="
+
+/***/ }),
+/* 369 */
+/***/ (function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAP5JREFUOI2d0zFOAmEUBODPLYR4CTXBQgNSezIbCs+AoKGykcLEhAMYY6kNliqN8QTWWrBY/A9EWMzCJNO8nfn/2bezLKOJS4zwHRzhAscF+hmq6CHHGI+4Cj7FLEcXlSLzAyboY7fggj3chOY+PDP04sHpfxEDrdB2p4NmROuXME9xG54GaWHjFbFXoRYHdLakDX/iZI0DYIidTFrO25pmeMV+toHxDzJ84HAD7xHeSQ0bS69SFgfSEs9J9cylkpTFIC6tTwddqRytEuaz0LbnhxWpnhOpJLUVsQehucP2oqAaSfLgENfBZ78/WbvIPI8GOtJ3/gq+SAurL4p/AA0wQeBheWgUAAAAAElFTkSuQmCC"
+
+/***/ }),
+/* 370 */
+/***/ (function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAAAAAAB/f39ISEg/P19UVFRMTFJPT09LS1FOTk5NTVFPT09OTlBMTE9NTU9OTlBOTk9NTU9OTlBNTU9NTVBNTU9OTlBOTlBMTFBOTk5NTVBMTFBNTU5OTk9NTU5OTk9OTlBOTk9MTE5OTlBMTE5OTlBOTlDCbPe7AAAAJnRSTlMAAQIHCAkoLS8xSE2MkJGSk5SVl5ianJ++wMLV1tfZ2t7n7Pj5/viPn/EAAACESURBVBhXRc9JEoJAAEPRr6C2MwjOggP0v/8RXdBodq+ySAWAZf3s+7YKDJmdHBLrHGB2S1avOTD2qlaw/OGzfhkD9c+BlR54qvfB87c29FpMj6Pt6HXPZJNsR6vuINkHlep2tAUhqp6T44L/rmoJ5Ne/LxlAXseBsczS33Bouu5RLAC+vR0ZuT0HjxIAAAAASUVORK5CYII="
+
+/***/ }),
+/* 371 */
+/***/ (function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAQpJREFUOI3tk7FKw2AUhc+5KSiUBAXdi8/gA7g7FpzNC8Qh7j6AICZ5AOlTiJMOru6CoItgHRycdDD3uKSShqTWUree5b/3/P/57l1+YMnibw+yLNt29/6kd/fXNE0/FgLmeb4v6QDAEwCQJIDdMAyHcRx/zg0simIPACQdArgi+VLbMJZ0GQTBWNI4SZL7erbXBpQ0qMobAGu1HiSvSa5LGrj7VzPbCgRw0eFPycxGAG6nvFkBd39397Kq35pe65BZQJLnAJ6rbY6b3p+Bi2gFXAH/AbhhZj0AkLTV9NxdzUDXX34EsEPyaGKQPK3OH8/MHuYClmU5NLMTkptt95IE4C6KorOOhZanb2V0ZR3GkALyAAAAAElFTkSuQmCC"
+
+/***/ }),
+/* 372 */
+/***/ (function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEmUlEQVR4XsWVbUxbVRzGn5YCYzBacN1EsNiFjYUpOlGJL8M4x9RsTk3mXDYTMSFqjMQv+wBuuviSYJZoZqL7oC5lLluiuKgElhkC0YwMXzqHKUNwjcCY2dhLYbwIlPZen5Cem3vPDtcaTfYnT56Hyy2/c07/5xyHruu4nuUS4b3up2kadJ1CHNDjdMrwGDDnc1k889G99JPiPdBFphv/jw7MZR3MlI49a2bgTPCTgWcQsok5QNBFuk4fpAcJ0pl1wtuYa5n9/wSnLCtgB08h/AVC3mT2igEJl2a+lnktvZ6gw8y76WE1nAKMFZgPXkz4aUL2KeH2y76NfprwWgWcLg1AAX+U8CAhxcxIEi4vexpR9cwBAtPMcHkAMvxBwr8hJMsWnnzDVVGfCbhqAGa4n/BGQtLs4O7UG5G3cBUKslbTb02i4fRn6DsFnGZpQnO3BwjxquAsrPZuRvmSKixduBLmmoqNIHTla3w3tAcjM2dluMjvUC2MXWIFHCLUd1WA8A2EN6vgma5cbF2+D/mZt8OuZrUpHDnzMk5d/FyCC6GVvp6OD9bp5gHcD8KDhJXJ8IwUN6pLvoAnvQDJVmPfiwgOH5Thwh8G0M4BWHqgTAXnc2zyvw13eh74zKLhqd8wNPEzZuJj8t/w1Iq9/JpKVHAWquQeAGGVKrg/uxxFngoCNIgaGPsBX4VfRWR6wGi4+256CZWFu5DqXAAWnA4X1t/yOhpCW2Q4HRsoyNvwXlW3ly5+3DKz85MhHOjZYoHr9I5zH6EpvMPybvEN65DhypHhFHIpv7QNYyWqfe7Lvhsas9DRgTcQ02aUWy144SCGxn8x3oUDWOZZI8OFiuQVyJLhTv5kpuYYM4rp0xgc+1EJF93eP3rcsgru9HwBl+WVeyDlmhPOQQjBopht4AlBs3wG0FRwgJJPwqvy8RrTpjE+O2zMxulw4ubsMiVcqNBTblmBkelzSjgtIjdhj+ps7796wtIDj/h3wQmXEn5n3lbkLVplvBvTowhf6VDBmdEn34adqoula7jRMiNvZhG23xaAZ0G+AXbAiYrCV7BxxVuWd3svt2IyOqqCRxj6pR6ItxJQL99qA6Od+D3ShuW5D0GUz30Xau5pR2RqENOxcSzNLEaKMxUs47yIa7M42lcvw0VuUl1GJwmntDL5Vms+sxPPlR5CToYPpuLvBZYGNdeX3TtwaeIPFZyOBhrkFaC03YQ3y1fqZDSCA78+i80le5GffQfsKhr/C0dCtei+8O188GO07+VdIJa9hd6u2moT0UsInNqGpt46nB8PAdDM4iAv46ehQ3j/eKUdPE6rS2Trdfxap1ssu4/IILN3vq1GQ1baEmpx4vvmET3WK3e7DEcC/q6Af/KE6TquO7HIvOwPENRGpSngqrM9Gfhh5u3mz336pOk6lpa9g3qMqMj/BG9gft4MB6QeUByv7fRyquc/wKdoNQl4VIJLA1Afr2GqlLGa/ue/hO+nrWT+UJq5egA2DRen76cvA7CR/jEVVsAnmI8x1NALyKpmPmsDl88Bwu0bLkpvSUjAcwnxMvZJDSeyLdzYhtez/ga6b+e4GkJgRQAAAABJRU5ErkJggg=="
+
+/***/ }),
+/* 373 */
+/***/ (function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEBUlEQVR4XsWWf0hdZRzGn+uPK86bV+3elSjSHS6HC2tIyFhbtNxYWFawfrCCHEhBsP/2h05iRMGNwYaDsT+qoRUblA3a0FiIsmhMCEVLNzQlNy2cul01XW7Xe87p8eDpHL+9O7segn3l4XneA8fP977nPe97fIZh4EFWmhWODrxG02EYFDTA0OjUv54ATDezda2IHqb38Lp9n32v9f9Mh5kNMFMGjmy/ixRYdX94JsfVzE0ETdEN+nV6N0HL2SC8g7mOOXI/OLVqBtzgqYS/y/GHzGGrIcvFL9/JvJMeJegM82H6iBpOAfYM3ANeQvgVjk8q4e7Tvo9+hfA6BZwuGlDA9xDezXEJM5KEy2n3ExVlbiLQ74TLBiT8WcLPcRzwChfTXkN96YTLBpzwCOEtHPvd4MH0R5G/bjMKA1voTySx4Iw36A12A+I1dKz2JkLCKjgLW8J7UbG+Bo+s2wRnLSZm0H/rO1wcP4KZu2MSbuWPqTbGPmsGfFaI9u2gaVWEt6rgWWl5eHPjSRRkPQm3WtIXcXb4ffROfS3gltBO303H8UrD2cA2EN5NWLmEZ6YGUVv6DXIyCpFstQy9h+7JryTc8ucBdLIB5z6glSvglIbqyEcIZuSb15KtVx9vxPh8DyYWBiSchRp6p9iIErtU8Eh2BYpzdhCuYy2V4kvD7sc+QHP/6xJOR5VqEW5Vrfay0Eume6mShyuRmZaL2/GYE04hj4oAGHXOQKnqPS/Kfho6s6fyARtytuPXyXM23Fbx6gagBSQ8hX9Z6bnm2GsFMwosuFRYroFUucMZPkPAvUhXwQFKNKDNERZ2bq8JPY75pUkE0kOe8TN3/lDCaTG5CK8SXiz39tG5y9gcqvIE1w0NI7cuqeDMGFrVAOFdhFbLg6VvsgWloT3wUoM32/kGzKrgMYZR+QjaCYzKU+3abBd+i3VgY95za4Jr+hK+H4pKuJXPq/aBHsIpvVyeaq3DDXin7DRyM4uQbH07cBDTC7+r4HQ00+QiNKGHCW+VRyo3Enzxy9vYW9qIguynXMFx7W+c7a/DwI0f7gW/QPuR2awU8U3YRu9UnecL8Wk09e7D+cF6TMz3A9CdYpM38fP4aRz7aZcbXKPVr+TVx/GhrqA17UVEdjOH5XluCwj411OhleetYeKvQbnaJRwr8E8s+GcvO47j+ssPOaf9GYI6KL8KTpd7ezLwM8xvOe/7/BXDfgRi2i9RLxAV+5/gzcz7nXBArAHFN1wnvYK66h2ORdqBFXhcwEUD6m+4EaqMsZb+5xrhp2ibmE+IX65uwGXBafRT9A0AXqR/So0o4AvMFxgO0As5rmUec4HLfYBw9wUXp7eZsuF5hIQZh8QzN7M7XLyGD6r+ASTI/X+4OYgXAAAAAElFTkSuQmCC"
 
 /***/ })
 /******/ ]);

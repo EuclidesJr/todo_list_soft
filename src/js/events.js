@@ -1,6 +1,6 @@
 import {todos} from './state';
 import {listen} from './lib/events';
-import {addTodo, toggleTodoState, showFiltered} from './actions';
+import {addTodo, toggleTodoState, showFiltered, removeDone} from './actions';
 
 export function registerEventHandlers() {
 	listen('click', '#addTodo', event => {
@@ -25,6 +25,12 @@ export function registerEventHandlers() {
 	listen('change', 'input[type="radio"]', event => {
 		const filterRadio = document.querySelector("input[name=filterStatus]:checked").value;
 		todos.dispatch(showFiltered(filterRadio));
+		event.stopPropagation();
+	});
+	
+	listen('click', '#removeTodo', event => {
+		const todoInput = document.getElementById('todoInput');
+		todos.dispatch(removeDone(todoInput.value));
 		event.stopPropagation();
 	});
 }

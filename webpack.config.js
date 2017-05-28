@@ -5,7 +5,9 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     output: {
         filename: 'bundle.js',
-        path: path.join(__dirname, 'dist')
+        path: path.join(__dirname, 'dist'),
+		publicPath: path.resolve(__dirname, 'src', 'images')
+
     },
     module: {
         loaders: [
@@ -22,7 +24,12 @@ module.exports = {
                 loader: 'style!css',
                 test: /\.css$/,
                 include: [path.resolve(__dirname, 'src', 'css')]
-            }
+            },
+			{
+				test: /\.(png|jpg)$/,
+				loader: 'url-loader'
+			} 
+            
         ]
     }
 };

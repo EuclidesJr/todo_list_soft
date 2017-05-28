@@ -33,3 +33,10 @@ export function showFiltered(text) {
 		}
 	}
 }
+
+export function removeDone(text){
+	return {
+		type: 'REMOVE_TODO',
+		text
+	}
+}
