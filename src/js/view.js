@@ -121,18 +121,3 @@ function renderTodoItem(todo) {
         <label for="${todo.id}"><a class="todo_text ${todoClass}">${todo.text}</a></label>
     </li>`;
 }
-
-function renderTodoItemFilter(todo,filterRadio) {
-    const todoClass = `todo__item todo__item--${todo.done ? 'done' : 'open'}`;
-    if(filterRadio == "open" && todo.done	){
-		return `<li class="${todoClass}">
-			<input class="js_toggle_todo" type="checkbox" data-id="${todo.id}"${todo.done ? ' checked' : ''}>
-			${todo.text}
-		</li>`;
-	} else if(filterRadio == "closed" && !todo.done){
-			return `<li class="${todoClass}">
-			<input class="js_toggle_todo" type="checkbox" data-id="${todo.id}"${todo.done ? ' checked' : ''}>
-			${todo.text}
-		</li>`;
-	}	
-}
